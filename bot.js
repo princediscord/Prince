@@ -38,112 +38,78 @@ if (message.content.startsWith('p' + 'pic')) {
 });
 
 
-     ***
+    client.on('guildCreate', guild => {
+  var embed = new Discord.RichEmbed()
+    .setColor(0x5500ff)
+    .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
+  guild.owner.send(embed)
+});
 
-      **
+/*بلاييق البوت*/
 
-      『${كتابي』
+client.on('ready', function(){
+  client.user.setStatus("dnd");
+  var ms = 100000 ;
+  var setGame = [`help Servers ${client.guilds.size} `,`invite Users ${client.users.size}`];
+  var i = -1;
+  var j = 0;
+  setInterval(function (){
+    if( i == -1 ){
+      j = 1;
+    }
+    if( i == (setGame.length)-1 ){
+      j = -1;
+    }
+    i = i+j;
+    client.user.setGame(setGame[i],`https://www.twitch.tv/peery13`);
+  }, ms);100000
+  
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES///////////
+////ALPHA / ALPHA CODES / ALPHA CODES//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////
+///////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////
 
-      『${prefix}cv /انشاء روم صوتي』
-
-      『${prefix}delet / مسح روم』
-
-      『${prefix}bc /لإرسال رسالة جماعية』
-
-      『${prefix}clear / لمسح الشات』
-
-      『${prefix}addrole / لراية اوامر اعطاء الرتبه او حدفها للعضو』
-
-      **
-
-      ***Bot Commands***
-
-      **
-
-      『${prefix}ping/ يعرض لك سرعه اتصال البوت』
-
-      『${prefix}uptime/ يعرض لك صار للبوت كم شغال』
-
-      『${prefix}support/ سيرفر الدعم القني و المساعده』
-
-      『${prefix}invite/ اضافه البوت』
-
-      『${prefix}mb/ حاله الاعضاء』
-
-      『${prefix}bot/ معلومات عن البوت』
-
-      **
-
-      ***Games Commands***
-
-      **
-
-      『${prefix}لعبه صراحه/صراحه』
-
-      『${prefix}لعبه خواطر/خواطر 』
-
-      『${prefix}يعطيك ذكر من الاذكار/ اذكار』
-
-      『${prefix}يخيرك بين شي وشي / لو خيروك』
-
-      『${prefix}يعطيك عقاب و لازم تنفذه/ عقاب』
-
-      『${prefix}لعبه اسئله / كت』
-
-      『${prefix}للعب لعبه قلب العمله/ عمله』
-
-      『${prefix}للعب لعبه عل تعلم/ هل تعلم』
-
-      『${prefix}للعب لعبه مريم/ مريم』
-
-      『${prefix}يعطيك كلمات حب/ حب』
-
-      **
-
-      ***profile Commands***
-
-      
-
-      『soon』
-
-      
-
-      _ _---------------- _ _
-
-      BOT By: |<@630168565752004621>|
-
-      
-
-      **
-
-      
-
-      `)
-
-   message.author.sendEmbed(embed
-
-   
-
-   }
-
-   });  
+/*سرفرات البوت*/
 
 client.on('message', message => {
+  if(message.content == (prefix + "admin bot")) {
+    if(!message.author.id === '620689121211449351') return;
+    var gimg;
+    var gname;
+    var gmemb;
+    var gbots;
+    var groles;
+    var servers = client.guilds;
+    servers.forEach((g)=>{
+      gname = g.name;
+      gimg = g.iconURL;
+      gmemb = g.members.size;
+      gbots = g.members.filter(m=>m.bot).size;
+      groles = g.roles.map(r=> {return r.name});
+      let serv = new Discord.RichEmbed()
+        .setAuthor(gname,gimg)
+        .setThumbnail(gimg)
+        .addField('Server bots',gbots)
+        .addField('Server Member Count',gmemb = g.members.size)
+        .setColor('RANDOM')
+      message.channel.send(`
+Server Name : **${gname}**
+Server MemberCount : **${gmemb} **
+        `);
+      message.channel.sendEmbed(serv);
+}) 
+}
+});  
 
-     if (message.content === (prefix + "help")) {
-
-     let embed = new Discord.RichEmbed()
-
-  .setAuthor(message.author.username)
-
-  .setColor("#8650a7")
-
-  .addField("Done" , " تــــم ارســالك في الخــاص")
-
-  message.channel.sendEmbed(embed);
-
-    }
-
-});
 
 client.login(process.env.BOT_TOKEN);
