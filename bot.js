@@ -265,29 +265,7 @@ var mentionned = message.mentions.members.first();
 }
      }
         });
-const dot = new Discord.Client();
-client.on('message', message => {
-    
-    if (message.content === "Plus Bot") {
-        setInterval(function(){
-        message.edit('**T**')    
-        message.edit('**Te**')    
-        message.edit('**Tea**')
-        message.edit('**Team**')
-        message.edit('**Team P**')
-        message.edit('**Team Pl**')
-        message.edit('**Team Plu*')
-        message.edit('**Team Plus**')
-        message.edit('**Team Plus **')
-        message.edit('**Team Plus B**')
-        message.edit('**Team Plus Bo**')
-        message.edit('**Team Plus Bot**')
-        message.edit('**Team Plus Bot **')
-        message.edit('**Team Plus Bot ..**')
-        }, 1000)
-    }
-    
-});
+
 
 
 
