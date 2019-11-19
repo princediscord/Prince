@@ -39,7 +39,7 @@ if (message.content.startsWith('p' + 'pic')) {
 
 client.on("message", message => {
 
-    if (message.content === (prefix + "help")) {
+    if (message.content === ("-help")) {
 
      const embed = new Discord.RichEmbed() 
 
