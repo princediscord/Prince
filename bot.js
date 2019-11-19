@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "p";
-const developers = ("490797166600781824")
+const developers = ("620689121211449351")
+                   
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
@@ -23,7 +24,7 @@ client.on('message', message => {
   } else 
   if (message.content.startsWith('p' + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/dream");
-      message.channel.send(`**✅**`)
+      message.channel.send(`**✅${argesult}**`)
   }
   if (message.content.startsWith(' p' + 'name')) {
   client.user.setUsername(argresult).then
