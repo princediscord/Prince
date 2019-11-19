@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "p";
+var prefix = "-";
 const developers = ("620689121211449351")
                    
 client.on('message', message => {
@@ -120,7 +120,7 @@ client.on('message' , message => {
         if (message.content.startsWith(prefix + "sug")) {
         if (!message.channel.guild) return;
         let args = message.content.split(" ").slice(1).join(" ");
-        client.channels.get("444186851390128148").send(
+        client.channels.get("646107866977140745").send(
             "\n" + "**" + " ● Suggested By : " + "**" +
             "\n" + "**" + "» " + message.author.tag + "**" +
             "\n" + "**" + " ● Suggest : " + "**" +
@@ -191,5 +191,78 @@ client.on('message', message => {
          message.channel.send({embed:embed});
                         }
  });
+client.on('message', message => {
+             if (!message.channel.guild) return;
+      if (message.author.bot) return;
+
+  if (!message.content.startsWith(prefix)) return;
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  
+  if (command === 'invites') {
+    message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+    return message.reply(`**${inviteCount}: عدد الاشخاص الذي دعوتهم هو**`)
+
+});
+}});
+
+/*معلونات البوت*/
+ 
+ client.on('message', message => {
+     if (message.content === (prefix + "bot")) {
+         if(!message.channel.guild) return;
+     let embed = new Discord.RichEmbed()
+  .setColor("#8650a7")
+  .addField("** :white_check_mark: Servers: **" , client.guilds.size)
+  .addField("** :white_check_mark: Users: **" , client.users.size)
+  .addField("** :white_check_mark: Channels: **" , client.channels.size)
+    .addField("** :rocket: Ping **" , Date.now() - message.createdTimestamp)
+    .setTimestamp()
+  message.channel.sendEmbed(embed);
+    }
+});
+
+/*اي دي*/
+
+client.on('message', message => {
+      if (message.content.startsWith(prefix + "id")) {
+      if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
+      message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+        moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+       
+    .setColor("#8650a7")
+    .setAuthor(message.author.username, message.author.avatarURL) 
+.addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+.addField(': عدد الدعوات', inviteCount,false)
+    message.channel.sendEmbed(id);
+})
+}
+     });
 
 client.login(process.env.BOT_TOKEN);
