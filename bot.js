@@ -334,30 +334,8 @@ client.on('message', function(msg) {
     msg.channel.send({embed:embed});
   }
 });
-client.on('message' , message => {
-    if (message.content === (prefix + "invite")) {
-        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
-     const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)
- .setAuthor(message.author.username, message.author.avatarURL)
- .setTitle('Click Here To Invite The Bot')
- .setURL('https://discordapp.com/oauth2/authorize?client_id=444182215476248576&scope=bot&permissions=9')
-  message.channel.sendEmbed(embed);
-   }
-});
-client.on('message' , message => {
-    if (message.content === (prefix + "inv")) {
-        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
-     const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)
- .setAuthor(message.author.username, message.author.avatarURL)
- .setTitle('Click Here To Invite The Bot')
- .setURL('https://discordapp.com/oauth2/authorize?client_id=444182215476248576&scope=bot&permissions=9')
-  message.channel.sendEmbed(embed);
-   }
-});
+
+
 
 /*افتار*/
 
