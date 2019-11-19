@@ -277,7 +277,7 @@ var mentionned = message.mentions.members.first();
 
 /*افتار*/
 
-client.on('message', message => {
+clienclient.on('message', message => {
     if (message.content.startsWith(prefix + "avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
@@ -294,7 +294,18 @@ client.on('message', message => {
     }
 });
 
-/*صورة السيرفر*/
+
+
+
+
+
+
+
+
+
+
+
+          
 
 
 client.login(process.env.BOT_TOKEN);
