@@ -277,7 +277,7 @@ var mentionned = message.mentions.members.first();
 
 /*افتار*/
 
-clienclient.on('message', message => {
+client.on('message', message => {
     if (message.content.startsWith(prefix + "avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
