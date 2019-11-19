@@ -48,9 +48,9 @@ if (message.content.startsWith('p' + 'pic')) {
 /*بلاييق البوت*/
 
 client.on('ready', function(){
-  client.user.setStatus("dnd");
+  client.user.setStatus("idle");
   var ms = 100000 ;
-  var setGame = [`help Servers ${client.guilds.size} `,`invite Users ${client.users.size}`];
+  var setGame = [`${prefix}help Servers ${client.guilds.size} `,`${prefix}invite Users ${client.users.size}`];
   var i = -1;
   var j = 0;
   setInterval(function (){
@@ -111,5 +111,100 @@ Server MemberCount : **${gmemb} **
 }
 });  
 
+const zalgo = require('zalgolize');
+ client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+if (command == "zalgo") {
+    let say = new Discord.RichEmbed()
+    .setTitle('Text emboss :');
+  message.reply(`\n ${zalgo(args.join(' '))}`);
+  }
+
+});
+
+/*اقتراح*/
+
+client.on('message' , message => {
+        if (message.author.bot) return;
+        if (message.content.startsWith(prefix + "sug")) {
+        if (!message.channel.guild) return;
+        let args = message.content.split(" ").slice(1).join(" ");
+        client.channels.get("444186851390128148").send(
+            "\n" + "**" + " ● Suggested By : " + "**" +
+            "\n" + "**" + "» " + message.author.tag + "**" +
+            "\n" + "**" + " ● Suggest : " + "**" +
+            "\n" + "**" + args + "**")
+        
+        let embed = new Discord.RichEmbed()
+             .setAuthor(message.author.username, message.author.avatarURL)
+             .setDescription(' Suggested Sent')
+             .setThumbnail(message.author.avatarURL)
+             .setFooter("Adidas")
+        message.channel.send(embed);
+}
+ });
+
+/*مسح*/
+
+client.on("message", message => {
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "مسح")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Plus Bot"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+});
+client.on("message", message => {
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Plus Bot"
+        }
+      }}).then(msg => {msg.delete(100000)});
+                          }
+});
+
+/*بنق*/
+
+client.on('message', message => {
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith(prefix + "ping")) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setColor('RANDOM')
+                        .addField('**Time Taken:**',msg + " ms :signal_strength: ")
+                        .addField('**WebSocket:**',api + " ms :signal_strength: ")
+         message.channel.send({embed:embed});
+                        }
+ });
 
 client.login(process.env.BOT_TOKEN);
