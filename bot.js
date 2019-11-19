@@ -263,6 +263,178 @@ var mentionned = message.mentions.members.first();
     message.channel.sendEmbed(id);
 })
 }
-     });
+     }
+        });
+const dot = new Discord.Client();
+client.on('message', message => {
+    
+    if (message.content === "Plus Bot") {
+        setInterval(function(){
+        message.edit('**T**')    
+        message.edit('**Te**')    
+        message.edit('**Tea**')
+        message.edit('**Team**')
+        message.edit('**Team P**')
+        message.edit('**Team Pl**')
+        message.edit('**Team Plu*')
+        message.edit('**Team Plus**')
+        message.edit('**Team Plus **')
+        message.edit('**Team Plus B**')
+        message.edit('**Team Plus Bo**')
+        message.edit('**Team Plus Bot**')
+        message.edit('**Team Plus Bot **')
+        message.edit('**Team Plus Bot ..**')
+        }, 1000)
+    }
+    
+});
+
+client.on('message', message => {
+    if (message.content === (prefix + "roles")) {
+        var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
+        const embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .addField('Roles:',`**[${roles}]**`)
+        message.channel.sendEmbed(embed);
+    }
+});
+client.on('message', message =>{
+    if(message.content == (prefix + "roles-n")){
+        var roles = '',
+        ros=message.guild.roles.size,
+        role = [];
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
+        }}
+        message.channel.send(role.join("\n"));
+    }
+});
+
+/*وقت وتاريخ*/
+       
+    client.on('message', message => {
+        if (message.content === prefix + "dt") {
+            if (!message.channel.guild) return message.reply('** This command only for servers **');  
+var currentTime = new Date(),
+            hours = currentTime.getHours() + 0 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds();
+            Year = currentTime.getFullYear(),
+            Month = currentTime.getMonth() + 1,
+            Day = currentTime.getDate();
+
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            var suffix = 'صباحاَ';
+            if (hours >= 12) {
+                suffix = 'مساء';
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+
+
+                var Date15= new Discord.RichEmbed()
+                .setThumbnail(message.author.avatarURL) 
+                .setTitle("**الوقت وتاريخ**")
+                .setColor('RANDOM')
+                .setTimestamp()
+                .addField('Time',
+                "『"+ hours + ":" + minutes + "』") 
+                .addField('Date',
+                "『"+ Day + "-" + Month + "-" + Year + "』")
+
+                 message.channel.sendEmbed(Date15);
+        }
+    });
+
+/*سرفر*/
+
+client.on('message', function(msg) {
+  if(msg.content.startsWith (prefix  + 'server')) {
+    if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+    const millis = new Date().getTime() - msg.guild.createdAt.getTime();
+    const noww = new Date();
+    const createdAt = millis / 1000 / 60 / 60 / 24;
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setThumbnail(msg.guild.iconURL)
+    .addField(`${msg.guild.name}`,`\`\`منذ ${createdAt.toFixed(0)} يوما \`\``)
+    .addField(':earth_africa: ** موقع السيرفر**',`**[ ${msg.guild.region} ]**`,true)
+    .addField(':military_medal:** الرتب**',`**[ ${msg.guild.roles.size} ]**`,true)
+    .addField(':bust_in_silhouette:** عدد الاعضاء**',`**[ ${msg.guild.memberCount} ]**`,true)
+    .addField(':white_check_mark:** عدد الاعضاء الاونلاين**',`**[ ${msg.guild.members.filter(m=>m.presence.status == 'online').size} ]**`,true)
+    .addField(':pencil:** الرومات الكتابية**',`**[ ${msg.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
+    .addField(':loud_sound:** رومات الصوت**',`**[ ${msg.guild.channels.filter(m => m.type === 'voice').size} ]**`,true)
+    .addField(':crown:** صاحب السيرفر**',`**[ ${msg.guild.owner} ]**`,true)
+    .addField(':id:** ايدي السيرفر**',`**[ ${msg.guild.id} ]**`,true)
+    msg.channel.send({embed:embed});
+  }
+});
+client.on('message' , message => {
+    if (message.content === (prefix + "invite")) {
+        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)
+ .setAuthor(message.author.username, message.author.avatarURL)
+ .setTitle('Click Here To Invite The Bot')
+ .setURL('https://discordapp.com/oauth2/authorize?client_id=444182215476248576&scope=bot&permissions=9')
+  message.channel.sendEmbed(embed);
+   }
+});
+client.on('message' , message => {
+    if (message.content === (prefix + "inv")) {
+        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)
+ .setAuthor(message.author.username, message.author.avatarURL)
+ .setTitle('Click Here To Invite The Bot')
+ .setURL('https://discordapp.com/oauth2/authorize?client_id=444182215476248576&scope=bot&permissions=9')
+  message.channel.sendEmbed(embed);
+   }
+});
+
+/*افتار*/
+
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
+/*صورة السيرفر*/
+client.on("message", message => {
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "avatar-server"){ 
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(` ** ${message.guild.name} **  صورة سيرفر`)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(0x164fe3)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
+
 
 client.login(process.env.BOT_TOKEN);
