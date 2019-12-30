@@ -267,4 +267,4 @@ var mentionned = message.mentions.members.first();
         });
 
 
-client.login(process.envBOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
