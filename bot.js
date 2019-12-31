@@ -50,35 +50,7 @@ if (message.content.startsWith('p' + 'pic')) {
 
 client.on('ready', function(){
   client.user.setStatus("idle");
-  var ms = 100000 ;
-  var setGame = [`${prefix}help Servers ${client.guilds.size} `,`${prefix}invite Users ${client.users.size}`];
-  var i = -1;
-  var j = 0;
-  setInterval(function (){
-    if( i == -1 ){
-      j = 1;
-    }
-    if( i == (setGame.length)-1 ){
-      j = -1;
-    }
-    i = i+j;
-    client.user.setGame(setGame[i],`https://www.twitch.tv/peery13`);
-  }, ms);100000
-  
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES///////////
-////ALPHA / ALPHA CODES / ALPHA CODES//////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////
-///////////////////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES//////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////
+  //////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////
 
 /*سرفرات البوت*/
 
@@ -121,7 +93,7 @@ client.on('message' , message => {
         if (message.content.startsWith(prefix + "sug")) {
         if (!message.channel.guild) return;
         let args = message.content.split(" ").slice(1).join(" ");
-        client.channels.get("646107866977140745").send(
+        client.channels.get("620689121211449351").send(
             "\n" + "**" + " ● Suggested By : " + "**" +
             "\n" + "**" + "» " + message.author.tag + "**" +
             "\n" + "**" + " ● Suggest : " + "**" +
@@ -140,7 +112,7 @@ client.on('message' , message => {
 
 client.on("message", message => {
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "مسح")) {
+            if (message.content.startsWith("مسح")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
         var msg;
         msg = parseInt();
@@ -217,8 +189,9 @@ client.on('message', message => {
      if (message.content === (prefix + "bot")) {
          if(!message.channel.guild) return;
      let embed = new Discord.RichEmbed()
-  .setColor("#8650a7")
-  .addField("** :white_check_mark: Servers: **" , client.guilds.size)
+   .setColor("#8650a7")
+  .setAuthor(message.author.username,message.author.avatarURL)
+     .addField("** :white_check_mark: Servers: **" , client.guilds.size)
   .addField("** :white_check_mark: Users: **" , client.users.size)
   .addField("** :white_check_mark: Channels: **" , client.channels.size)
     .addField("** :rocket: Ping **" , Date.now() - message.createdTimestamp)
