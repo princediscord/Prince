@@ -18,9 +18,8 @@ client.on('message', message => {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`**✅   ${argresult}**`)
   } else 
-  if (message.content.startsWith(prefix
-                                 + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
+  if (message.content.startsWith(prefix + 'ls')) {
+client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`**✅   ${argresult}**`)
   } else 
   if (message.content.startsWith(prefix + 'st')) {
