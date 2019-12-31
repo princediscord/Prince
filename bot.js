@@ -202,10 +202,9 @@ client.on('message', message => {
 /*اي دي*/
 client.on('message', msg => {
   if (msg.content === '-help') {
-    msg.reply('**
-
-
-
+    msg.reply('
+              
+       **      
       
       ╭━━━┳╮╱╱╱╱╱╱╱ ╭━━╮╱╱╱╱╭╮
       ┃╭━╮┃┃╱╱╱╱╱╱╱ ┃╭╮┃╱╱╱╭╯╰╮
@@ -256,9 +255,9 @@ client.on('message', msg => {
       『${prefix}support/ سيرفر الدعم القني و المساعده』
       『${prefix}invite/ اضافه البوت』
       『${prefix}mb/ حاله الاعضاء』
-      『${prefix}bot/ معلومات عن البوت』
+      『${prefix}bot/ معلومات عن البوت』**');
               
-      **');
+      
               }
               });
 
