@@ -94,7 +94,7 @@ client.on('message' , message => {
         if (message.content.startsWith(prefix + "sug")) {
         if (!message.channel.guild) return;
         let args = message.content.split(" ").slice(1).join(" ");
-        client.channels.get("620689121211449351").send(
+        client.channels.get("661326625241169925").send(
             "\n" + "**" + " ● Suggested By : " + "**" +
             "\n" + "**" + "» " + message.author.tag + "**" +
             "\n" + "**" + " ● Suggest : " + "**" +
