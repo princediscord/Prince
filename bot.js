@@ -200,9 +200,9 @@ client.on('message', message => {
 });
 
 /*اي دي*/
-client.on('message', msg => {
-  if (msg.content === '-help') {
-    message.reply('
+client.on('message', message => {
+  if (message.content === '-help') {
+    retrun message.reply('
               
        **      
       
