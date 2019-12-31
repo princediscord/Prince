@@ -190,9 +190,7 @@ client.on('message', message => {
          if(!message.channel.guild) return;
      let embed = new Discord.RichEmbed()
    .setColor("#8650a7")
-  .addField(message.author.username,message.author.avatarURL)
-  
-     
+  .addField(message.author.username,message.author.avatar  
 
   .addField("** :white_check_mark: Servers: **" , client.guilds.size)
   .addField("** :white_check_mark: Users: **" , client.users.size)
