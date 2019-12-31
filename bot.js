@@ -48,8 +48,7 @@ if (message.content.startsWith('p' + 'pic')) {
 
 /*بلاييق البوت*/
 
-client.on('ready', function(){
-  client.user.setStatus("idle");
+
   
   
   //////ALPHA / ALPHA CODES / ALPHA CODES///////////////////////////
