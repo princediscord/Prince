@@ -11,22 +11,23 @@ client.on('message', message => {
     client.user.setGame(argresult);
       message.channel.send(`**✅   ${argresult}**`)
   } else 
-     if (message.content === ('p' + "خروج")) {
+     if (message.content === (prefix + "خروج")) {
     message.guild.leave();        
   } else  
-  if (message.content.startsWith('p' + 'wt')) {
+  if (message.content.startsWith(prefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`**✅   ${argresult}**`)
   } else 
-  if (message.content.startsWith('p' + 'ls')) {
+  if (message.content.startsWith(prefix
+                                 + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`**✅   ${argresult}**`)
   } else 
-  if (message.content.startsWith('p' + 'st')) {
+  if (message.content.startsWith(prefix + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/dream");
       message.channel.send(`**✅${argesult}**`)
   }
-  if (message.content.startsWith(' p' + 'name')) {
+  if (message.content.startsWith(prefix + 'name')) {
   client.user.setUsername(argresult).then
       message.channel.send(`Changing The Name To ..**${argresult}** `)
 } else
