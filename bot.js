@@ -202,7 +202,7 @@ client.on('message', message => {
 /*اي دي*/
 client.on('message', message => {
   if (message.content === '-help') {
-    retrun message.reply('
+    retrun message.reply(`
               
        **      
       
@@ -255,7 +255,7 @@ client.on('message', message => {
       『${prefix}support/ سيرفر الدعم القني و المساعده』
       『${prefix}invite/ اضافه البوت』
       『${prefix}mb/ حاله الاعضاء』
-      『${prefix}bot/ معلومات عن البوت』**');
+      『${prefix}bot/ معلومات عن البوت』** `);
               
       
               }
