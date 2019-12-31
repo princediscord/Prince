@@ -200,8 +200,67 @@ client.on('message', message => {
 });
 
 /*اي دي*/
+client.on('message', msg => {
+  if (msg.content === '-help') {
+    msg.reply('**
 
 
+
+      
+      ╭━━━┳╮╱╱╱╱╱╱╱ ╭━━╮╱╱╱╱╭╮
+      ┃╭━╮┃┃╱╱╱╱╱╱╱ ┃╭╮┃╱╱╱╭╯╰╮
+      ┃╰━╯┃┃╭╮╭┳━━╮ ┃╰╯╰┳━━╋╮╭╯
+      ┃╭━━┫┃┃┃┃┃━━┫ ┃╭━╮┃╭╮┃┃┃
+      ┃┃╱╱┃╰┫╰╯┣━━┃ ┃╰━╯┃╰╯┃┃╰╮
+      ╰╯╱╱╰━┻━━┻━━╯ ╰━━━┻━━╯╰━╯
+      **
+      
+      ***General Commands***
+      **
+      『${prefix}id/ معلومات عن حسابك』
+      『${prefix}2id / معلومات عن الحساب في صوره』
+      『${prefix}embed/ يكرر كلامك بمبيد』
+      『${prefix}sug/ الإقتراحات』
+      『${prefix}roles/ يطلع الرتب』
+      『${prefix}roles-n يعطيك الرتب بالترتيب』
+      『${prefix}server/ معلومات عن السيرفر』
+      『${prefix}image/ يعرض صوره السيرفر』
+      『${prefix}avatar/ يعرض صورتك او صوره شخص』
+      『${prefix}dt/يعرض لك الوقت والتاريخ واليوم 』
+      『${prefix}invites/ يعرض كم ضياف 』
+      『${prefix}topinvite/ لعرض قائمه فيها كل واحد ضاف كم 』
+      『${prefix}zalgo / يزخرف لك شي تكتب لازم يكون انقليزي مو عربي』
+      『${prefix}draw / يكرر الكلام في صوره』
+      『${prefix}say / يكرر الكلام لتكتب』
+      『${prefix}translate / يترجم』
+      『${prefix}botserver / يحطيك سرفرات البوت بترتيب』
+      『${prefix}short / اختصار الروابط』
+      『${prefix}calculate / حاسبة』
+      **
+      ***Administrative Commands***
+      **
+      『${prefix}color 50 /انشاء 50 لون』
+      『${prefix}color 100/انشاء 100 لون』
+      『${prefix}color 140/انشاء 140 لوم』
+      『${prefix}ct /انشاء روم كتابي』
+      『${prefix}cv /انشاء روم صوتي』
+      『${prefix}delet / مسح روم』
+      『${prefix}bc /لإرسال رسالة جماعية』
+      『${prefix}clear / لمسح الشات』
+      『${prefix}addrole / لراية اوامر اعطاء الرتبه او حدفها للعضو』
+      **
+      ***Bot Commands***
+      **
+      『${prefix}ping/ يعرض لك سرعه اتصال البوت』
+      『${prefix}uptime/ يعرض لك صار للبوت كم شغال』
+      『${prefix}support/ سيرفر الدعم القني و المساعده』
+      『${prefix}invite/ اضافه البوت』
+      『${prefix}mb/ حاله الاعضاء』
+      『${prefix}bot/ معلومات عن البوت』
+              
+      **');
+              }
+              });
 
 
 client.login(process.env.BOT_TOKEN);
