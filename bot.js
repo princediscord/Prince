@@ -202,7 +202,7 @@ client.on('message', message => {
 /*اي دي*/
 client.on('message', msg => {
   if (msg.content === '-help') {
-    msg.reply('
+    message.reply('
               
        **      
       
