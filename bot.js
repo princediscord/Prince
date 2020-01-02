@@ -266,11 +266,11 @@ if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if(message.author.id !== '620689121211449351') return
 message.channel.sendMessage('✅')
-هلا.users.forEach(m =>{
+client.users.forEach(m =>{
 m.sendMessage(args)
-})
-}
-})
+});
+});
+});
 });
 
 client.login(process.env.BOT_TOKEN);
